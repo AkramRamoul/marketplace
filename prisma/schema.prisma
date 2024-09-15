@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model User {
+  id String @id @unique
+  email String 
+  firstName String
+  lastName String
+  profileImage String
+  
+  Product Product[]
+
+}
+
+model Product{
+  id String @id @default(uuid())
+  name String
+  price Int
+  smallDescription String
+  description Json
+  images String[]
+  productFile String
+  category categoryTypes
+
+  createdAt DateTime @default(now())
+  
+  userId String
+  user User @relation(fields: [userId], references: [id]) // Define the relation to User
+
+
+}
+
+enum categoryTypes{
+  template
+  uikit
+  icon
+}
