@@ -72,6 +72,7 @@ interface TiptapEditorProps {
 
 export function TiptapEditor({ setJson, json }: TiptapEditorProps) {
   const editor = useEditor({
+    immediatelyRender: false,
     content: json,
     onUpdate: ({ editor }) => {
       setJson(editor.getJSON());

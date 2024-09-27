@@ -13,17 +13,17 @@ export const links = [
   {
     id: 1,
     name: "templates",
-    href: "#",
+    href: "/products/template",
   },
   {
     id: 2,
     name: "Ui kits",
-    href: "#",
+    href: "/products/uikit",
   },
   {
     id: 3,
     name: "Icons",
-    href: "#",
+    href: "/products/icon",
   },
 ];
 
@@ -39,7 +39,7 @@ function NavbarLinks() {
             path === link.href
               ? "bg-muted"
               : "hover:bg-muted hover:bg-opacity-75",
-            "grpup flex items-center px-2 py-2 font-medium rounded-md"
+            "group flex items-center px-2 py-2 font-medium rounded-md"
           )}
         >
           {link.name}

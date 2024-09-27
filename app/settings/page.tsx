@@ -1,14 +1,14 @@
 import { getUserData } from "@/actions/actions";
 import { Card } from "@/components/ui/card";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import SettingsForm from "../components/SettingsForm";
+import SettingsForm from "../components/form/SettingsForm";
 class UserNotFoundError extends Error {}
 
 async function SettingsPage() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   if (!user) {
-    throw new UserNotFoundError();
+    throw new UserNotFoundError("Unautherized");
   }
   const data = await getUserData(user.id);
   return (

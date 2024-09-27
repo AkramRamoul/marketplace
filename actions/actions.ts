@@ -148,12 +148,16 @@ export const GetData = async () => {
       id: true,
       images: true,
     },
-    take: 4,
+    take: 3,
     orderBy: {
       createdAt: "desc",
     },
   });
-  return data;
+  return {
+    data,
+    title: "Newest Products",
+    link: "/products/all",
+  };
 };
 
 export const GetProductById = async (id: string) => {
@@ -161,20 +165,58 @@ export const GetProductById = async (id: string) => {
     where: {
       id,
     },
+  });
+  return data;
+};
+
+export const GetProductByCategory = async (category: string) => {
+  const data = await prisma.product.findMany({
+    where: {
+      category: category as categoryTypes,
+    },
     select: {
-      category: true,
-      description: true,
+      price: true,
       smallDescription: true,
       name: true,
+      id: true,
       images: true,
-      createdAt: true,
+    },
+  });
+  return {
+    data,
+    title: `${category.charAt(0).toUpperCase() + category.slice(1)}s`,
+    link: `/products/${category}`,
+  };
+};
+
+export const GetProductBycat = async (category: string) => {
+  const data = await prisma.product.findMany({
+    where: {
+      category: category as categoryTypes,
+    },
+    select: {
       price: true,
-      user: {
-        select: {
-          profileImage: true,
-          firstName: true,
-        },
-      },
+      smallDescription: true,
+      name: true,
+      id: true,
+      images: true,
+    },
+  });
+  return data;
+};
+
+export const GetUserProducts = async (userId: string) => {
+  const data = await prisma.product.findMany({
+    where: {
+      userId: userId,
+    },
+    select: {
+      category: true,
+      name: true,
+      images: true,
+      price: true,
+      smallDescription: true,
+      id: true,
     },
   });
   return data;

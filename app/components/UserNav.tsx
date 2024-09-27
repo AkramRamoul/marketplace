@@ -46,6 +46,9 @@ function UserNav({ email, name, userImage }: props) {
           <DropdownMenuItem asChild>
             <Link href="/settings">Settings</Link>
           </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/my-products">My Products</Link>
+          </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>

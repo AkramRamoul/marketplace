@@ -20,8 +20,8 @@ function MobileMenu() {
     <div>
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="outline" size="icon">
-            <Menu className="w-4 h-4" />
+          <Button variant="outline">
+            <Menu />
           </Button>
         </SheetTrigger>
         <SheetContent>

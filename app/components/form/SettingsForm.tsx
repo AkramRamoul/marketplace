@@ -8,10 +8,10 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import SubmnitButton from "./SubmnitButton";
+import SubmnitButton from "../SubmnitButton";
 import { useFormState } from "react-dom";
-import { UpdateUserData } from "@/actions/product";
-import { State } from "@/actions/product";
+import { UpdateUserData } from "@/actions/actions";
+import { State } from "@/actions/actions";
 import { toast } from "sonner";
 import { useEffect } from "react";
 
