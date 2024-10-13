@@ -1,8 +1,11 @@
 import { GetUserProducts } from "@/actions/actions";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Product from "../components/Product";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function ProductsPage() {
+  noStore();
+
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   if (!user) {
