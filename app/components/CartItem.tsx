@@ -34,7 +34,7 @@ function CartItem({ images, name, price, smallDescription, id }: iAppProps) {
           <div className="mt-4 text-xs text-muted-foreground border-none">
             <Button
               variant="ghost"
-              size={"xs"}
+              size={"sm"}
               onClick={() => removeItem(id)}
               className="flex items-center gap-0.5 hover:bg-transparent hover:text-destructive"
             >
