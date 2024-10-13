@@ -6,7 +6,7 @@ const f = createUploadthing();
 
 export const ourFileRouter = {
   imageUploader: f({ image: { maxFileSize: "4MB", maxFileCount: 5 } })
-    .middleware(async ({ req }) => {
+    .middleware(async () => {
       const { getUser } = getKindeServerSession();
 
       const user = await getUser();
@@ -22,7 +22,7 @@ export const ourFileRouter = {
       return { uploadedBy: metadata.userId };
     }),
   producFiles: f({ blob: { maxFileCount: 1 } })
-    .middleware(async ({ req }) => {
+    .middleware(async () => {
       const { getUser } = getKindeServerSession();
 
       const user = await getUser();
