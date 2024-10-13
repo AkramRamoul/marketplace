@@ -9,6 +9,7 @@ import {
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import UserNav from "./UserNav";
 import Cart from "./Cart";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 async function Navbar() {
   const { getUser } = getKindeServerSession();
@@ -28,6 +29,7 @@ async function Navbar() {
       </div>
       <NavbarLinks />
       <div className="flex items-center gap-x-2 ms-auto md:col-span-3">
+        <ThemeSwitcher />
         {user ? (
           <UserNav
             email={user.email as string}

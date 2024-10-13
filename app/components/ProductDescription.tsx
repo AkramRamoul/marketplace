@@ -9,7 +9,7 @@ function ProductDescription({ content }: { content: JSONContent }) {
     content: content,
     editorProps: {
       attributes: {
-        class: "prose prose-sm sm:prose-base",
+        class: "prose prose-sm sm:prose-base text-muted-foreground",
       },
     },
   });

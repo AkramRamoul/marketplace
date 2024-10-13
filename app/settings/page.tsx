@@ -2,13 +2,15 @@ import { getUserData } from "@/actions/actions";
 import { Card } from "@/components/ui/card";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import SettingsForm from "../components/form/SettingsForm";
-class UserNotFoundError extends Error {}
+import { redirect } from "next/navigation";
 
 async function SettingsPage() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  if (!user) {
-    throw new UserNotFoundError("Unautherized");
+  const { isAuthenticated } = getKindeServerSession();
+
+  if (!(await isAuthenticated())) {
+    redirect("/api/auth/login?post_login_redirect_url=/settings");
   }
   const data = await getUserData(user.id);
   return (

@@ -5,6 +5,7 @@ import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +21,16 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-        <Navbar />
-        {children}
-        <Toaster richColors theme="light" closeButton />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <Toaster richColors theme="light" closeButton />
+        </ThemeProvider>
       </body>
     </html>
   );

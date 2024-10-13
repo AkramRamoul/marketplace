@@ -1,7 +1,15 @@
-import React from "react";
+"use server";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { redirect } from "next/navigation";
+import CartPage from "../components/CartPage";
 
-function page() {
-  return <div>page</div>;
+async function Page() {
+  const { isAuthenticated } = getKindeServerSession();
+
+  if (!(await isAuthenticated())) {
+    redirect("/api/auth/login?post_login_redirect_url=/cart");
+  }
+  return <CartPage />;
 }
 
-export default page;
+export default Page;

@@ -52,14 +52,14 @@ async function ProductPage({
         <CarouselNext className="mr-16" />
       </Carousel>
       <div className="max-w-2xl mx-auto mt-5 lg:max-w-none lg:mt-0 lg:row-span-2 lg:col-span-3">
-        <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+        <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
           {product.name}
         </h1>
-        <p className="mt-2 text-muted-foreground">{product.smallDescription}</p>
+        <p className="mt-2">{product.smallDescription}</p>
         <AddToCartButton product={product} />
         <div className="border-t border-gray-200 mt-10 pt-10">
           <div className="grid grid-cols-2 w-full gap-y-3">
-            <h3 className="text-sm font-medium text-muted-foreground col-span-1">
+            <h3 className="text-sm font-medium col-span-1 text-muted-foreground">
               Released :
             </h3>
             <h3 className="text-sm font-medium col-span-1">
@@ -83,7 +83,7 @@ async function ProductPage({
         </div>
         <div className="border-t border-gray-200 mt-10"></div>
       </div>
-      <div className="w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
+      <div className="text-primary w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
         <ProductDescription content={product.description as JSONContent} />
       </div>
     </section>

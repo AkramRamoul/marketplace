@@ -30,7 +30,7 @@ export async function SellProduct(prevState: any, formData: FormData) {
   const user = await getUser();
 
   if (!user) {
-    throw new UserNotFoundError();
+    throw new UserNotFoundError("UnAutherized");
   }
 
   const validate = productSchema.safeParse({

@@ -2,7 +2,7 @@ import ProductsRow from "./components/ProductsRow";
 
 export default function Home() {
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24">
+    <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24 bg-background">
       <div className="mx-3xl mx-auto text-2xl sm:text-5xl lg:text-6xl font-semibold text-center">
         <h1>Find the UI for you</h1>
         <h1 className="text-primary">Template & Icons</h1>
