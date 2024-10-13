@@ -3,8 +3,10 @@ import { Card } from "@/components/ui/card";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import SettingsForm from "../components/form/SettingsForm";
 import { redirect } from "next/navigation";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function SettingsPage() {
+  noStore();
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   const { isAuthenticated } = getKindeServerSession();

@@ -2,8 +2,10 @@ import { Card } from "@/components/ui/card";
 import SellForm from "../components/form/SellForm";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function SellRoute() {
+  noStore();
   const { isAuthenticated } = getKindeServerSession();
 
   if (!(await isAuthenticated())) {

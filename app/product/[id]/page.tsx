@@ -1,6 +1,8 @@
 import { GetProductById } from "@/actions/actions";
 import AddToCartButton from "@/app/components/AddToCartButton";
 import ProductDescription from "@/app/components/ProductDescription";
+import { unstable_noStore as noStore } from "next/cache";
+
 import {
   Carousel,
   CarouselContent,
@@ -21,6 +23,8 @@ async function ProductPage({
   };
 }) {
   const { id } = params;
+  noStore();
+
   const product = await GetProductById(id);
 
   if (!product) {
