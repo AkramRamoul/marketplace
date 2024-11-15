@@ -4,6 +4,9 @@
 
 An interactive digital marketplace built using modern web technologies to provide users with a seamless browsing and purchasing experience. This project integrates robust state management, rich content editing, secure file uploads, and efficient database operations.
 
+This project is deployed via Vercel . Check out the live demo [here](https://marketplace-orpin-two.vercel.app/).
+
+
 
 
 ## Features
